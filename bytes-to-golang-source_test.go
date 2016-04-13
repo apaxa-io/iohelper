@@ -1,7 +1,7 @@
 package iohelper
 
 import (
-	"apaxa/buffer"
+	"github.com/apaxa-io/byteshelper"
 	"testing"
 )
 
@@ -48,7 +48,7 @@ var test = []testElement{
 
 func TestBytesToGoSliceSource(t *testing.T) {
 	for i, v := range test {
-		buf := buffer.NewBufferDetail(0, 1)
+		buf := byteshelper.NewBufferDetail(0, 1)
 		err := BytesToGoSliceSource(v.b, buf)
 		if (err != nil) != v.err {
 			t.Errorf("TestBytesToGoSliceSource - %v. Got error: %v", i, err)
@@ -63,7 +63,7 @@ func TestBytesToGoSliceSource(t *testing.T) {
 
 func TestBytesToGoArraySource(t *testing.T) {
 	for i, v := range test {
-		buf := buffer.NewBufferDetail(0, 128)
+		buf := byteshelper.NewBufferDetail(0, 128)
 		err := BytesToGoArraySource(v.b, buf)
 		if (err != nil) != v.err {
 			t.Errorf("TestBytesToGoArraySource - %v. Got error: %v", i, err)

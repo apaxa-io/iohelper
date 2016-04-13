@@ -1,7 +1,7 @@
 package iohelper
 
 import (
-	"apaxa/buffer"
+	"github.com/apaxa-io/byteshelper"
 	"bytes"
 	"encoding/binary"
 	"reflect"
@@ -84,7 +84,7 @@ func TestWrite(t *testing.T) {
 	b1 := []byte{0x04}
 	b2 := []byte{0x01, 0x02, 0x03}
 
-	buf := buffer.NewBufferDetail(0, 1)
+	buf := byteshelper.NewBufferDetail(0, 1)
 
 	// check no argument
 	n := 0
@@ -108,7 +108,7 @@ func TestWrite(t *testing.T) {
 
 	// check 2 arguments
 	n = 2
-	buf = buffer.NewBufferDetail(0, 1)
+	buf = byteshelper.NewBufferDetail(0, 1)
 	i, err = Write(buf, binary.LittleEndian, b1, b2)
 	if err != nil {
 		t.Errorf("TestWrite. Got error: %v", err)
@@ -126,7 +126,7 @@ func TestWrite(t *testing.T) {
 		m[i] = []byte{0x01}
 		b = append(b, 0x01)
 	}
-	buf = buffer.NewBufferDetail(n, 1)
+	buf = byteshelper.NewBufferDetail(n, 1)
 	i, err = Write(buf, binary.LittleEndian, m...)
 	if err != nil {
 		t.Errorf("TestWrite. Got error: %v", err)
@@ -137,7 +137,7 @@ func TestWrite(t *testing.T) {
 	}
 
 	//check error EOF
-	buf = buffer.NewBufferDetail(0, 0)
+	buf = byteshelper.NewBufferDetail(0, 0)
 	_, err = Read(buf, binary.LittleEndian, b2)
 	if err == nil {
 		t.Errorf("TestRead. Expected error EOF but got nil")
