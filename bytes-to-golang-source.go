@@ -3,6 +3,7 @@ package iohelper
 import (
 	"io"
 	"fmt"
+	"strconv"
 )
 
 func bytesToGoSource(b []byte, prefix string, w io.Writer) error {
@@ -47,5 +48,5 @@ func BytesToGoSliceSource(b []byte, w io.Writer) error {
 // BytesToGoArraySource is similar to BytesToGoSliceSource but generate array instead of slice.
 // Example: for b=[]byte{0x01, 0x02, 0x03} BytesToGoSliceSource write "[3]byte{0x01, 0x02, 0x03}" AS STRING.
 func BytesToGoArraySource(b []byte, w io.Writer) error {
-	return bytesToGoSource(b, "["+string(len(b))+"]byte{", w)
+	return bytesToGoSource(b, "["+strconv.Itoa(len(b))+"]byte{", w)
 }
