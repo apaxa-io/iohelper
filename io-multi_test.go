@@ -6,8 +6,8 @@ import (
 	"encoding/binary"
 	"reflect"
 	"testing"
-	//"fmt"
 )
+/*
 //TODO divide to different function
 func TestRead(t *testing.T) {
 	b := []byte{0x01, 0x02, 0x03}
@@ -143,3 +143,4 @@ func TestWrite(t *testing.T) {
 		t.Errorf("TestRead. Expected error EOF but got nil")
 	}
 }
+*/
