@@ -1,12 +1,12 @@
 package iohelper
 
-import (
-	"github.com/apaxa-io/byteshelper"
-	"bytes"
-	"encoding/binary"
-	"reflect"
-	"testing"
-)
+//import (
+//	"github.com/apaxa-io/byteshelper"
+//	"bytes"
+//	"encoding/binary"
+//	"reflect"
+//	"testing"
+//)
 /*
 //TODO divide to different function
 func TestRead(t *testing.T) {
